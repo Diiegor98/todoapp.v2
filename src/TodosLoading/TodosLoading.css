@@ -3,6 +3,8 @@
     --uib-speed: .9s;
     --uib-color: #183153;
     position: relative;
+    margin: 2em 0;
+    left: 50%;
     display: flex;
     align-items: center;
     justify-content: flex-start;

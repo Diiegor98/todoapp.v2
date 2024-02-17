@@ -1,6 +1,6 @@
 const TodosEmpty = () => {
     return(
-        <></>
+        <p>Todas</p>
     )
 }
 

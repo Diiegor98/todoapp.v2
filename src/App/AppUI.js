@@ -6,28 +6,32 @@ import TodosLoading from "../TodosLoading";
 import TodosError from "../TodosError";
 import TodosEmpty from "../TodosEmpty";
 import CreateTodoButton from "../CreateTodoButton";
+import Modal from "../Modal";
+import TodoForm from "../TodoForm";
 
-const AppUI = ({
-  loading,
-  error,
-  setSearchValue,
-  searchedTodos,
-  completeTodo,
-  deleteTodo,
-  completedTodos,
-  totalTodos,
-  searchValue
-}) => {
+//Provider
+import { TodoContext } from "../TodoContext";
+import { useContext } from "react";
+
+const AppUI = () => {
+  const {
+    loading,
+    error,
+    searchedTodos,
+    completeTodo,
+    deleteTodo,
+    openModal,
+    setOpenModal,
+  } = useContext(TodoContext);
+
   return (
     <div className="App">
-      <TodoCounter completed={completedTodos} total={totalTodos} />
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
-
+      <TodoCounter />
+      <TodoSearch />
       <TodoList>
-
         {loading && <TodosLoading />}
         {error && <TodosError />}
-        {(!loading && searchedTodos.length === 0) && <TodosEmpty />}
+        {!loading && !error && searchedTodos.length === 0 && <TodosEmpty />}
 
         {searchedTodos.map((todo) => (
           <TodoItem
@@ -40,7 +44,9 @@ const AppUI = ({
         ))}
       </TodoList>
 
-      <CreateTodoButton />
+      <CreateTodoButton setOpenModal={setOpenModal} />
+
+      {openModal && <Modal><TodoForm /></Modal>}
     </div>
   );
 };

@@ -1,0 +1,18 @@
+.error-container{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-icon{
+    color: red;
+    font-size: 3em;
+}
+
+.error-text{
+    margin: 0.5em;
+    font-size: 2em;
+    text-align: center;
+}
