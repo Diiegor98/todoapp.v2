@@ -1,10 +1,16 @@
 import "./createtodobutton.css";
+import { MdAddToPhotos } from "react-icons/md";
+import { IconContext } from "react-icons";
 
 function CreateTodoButton({ setOpenModal }) {
   return (
-    <button className="CreateTodoButton" onClick={() => {setOpenModal(state => !state)}}>
-      +
-    </button>
+    <IconContext.Provider value={{ className: "CreateTodoButton" }}>
+      <MdAddToPhotos
+        onClick={() => {
+          setOpenModal((state) => !state);
+        }}
+      />
+    </IconContext.Provider>
   );
 }
 
