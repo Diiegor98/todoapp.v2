@@ -6,11 +6,6 @@
     justify-content: center;
 }
 
-.empty-icon{
-    color: rgb(0, 0, 0);
-    font-size: 3em;
-}
-
 .empty-text{
     margin: 0.5em;
     font-size: 1.2em;
